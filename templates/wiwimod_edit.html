@@ -1,0 +1,24 @@
+<{$wiwimodform.javascript}>
+<form id="<{$wiwimodform.name}>" name="<{$wiwimodform.name}>" action="<{$wiwimodform.action}>" method="<{$wiwimodform.method}>" <{$wiwimodform.extra}>>
+<table class="outer" cellspacing="1">
+    <tr>
+    <th colspan="2"><{$wiwimodform.title}></th>
+    </tr>
+    <!-- start of form elements loop -->
+    <{foreach item=element from=$wiwimodform.elements}>
+        <{if $element.hidden !== true}>
+        <tr>
+            <td class="head"><{$element.caption}></td>
+            <td class="<{cycle values="even,odd"}>"><{$element.body}></td>
+        </tr>
+        <{else}>
+        <{$element.body}>
+        <{/if}>
+    <{/foreach}>
+    <!-- end of form elements loop -->
+</table>
+</form>
+
+<{if $wiwimod}>
+<h1><{$wiwimod.title}></h1>
+<{$wiwimod.body}><{/if}>
